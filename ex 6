@@ -1,0 +1,13 @@
+rooms = {'A': 'Dirty', 'B': 'Dirty'}
+location = 'A'
+
+while 'Dirty' in rooms.values():
+    print(location, rooms[location])
+
+    if rooms[location] == 'Dirty':
+        print("Cleaning", location)
+        rooms[location] = 'Clean'
+
+    location = 'B' if location == 'A' else 'A'
+
+print("Both rooms are clean")
