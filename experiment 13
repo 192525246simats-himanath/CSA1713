@@ -1,0 +1,14 @@
+def minimax(depth, maximizing):
+    scores = [3, 5, 2, 9]
+
+    if depth == 2:
+        return scores.pop(0)
+
+    if maximizing:
+        return max(minimax(depth + 1, False),
+                   minimax(depth + 1, False))
+    else:
+        return min(minimax(depth + 1, True),
+                   minimax(depth + 1, True))
+
+print("Best Score:", minimax(0, True))
