@@ -1,0 +1,23 @@
+% Symptoms
+symptom(fever).
+symptom(cough).
+symptom(headache).
+symptom(cold).
+
+% Disease rules
+disease(flu) :-
+    symptom(fever),
+    symptom(cough),
+    symptom(headache).
+
+disease(common_cold) :-
+    symptom(cold),
+    symptom(cough).
+
+disease(malaria) :-
+    symptom(fever),
+    symptom(headache).
+
+disease(covid) :-
+    symptom(fever),
+    symptom(cough).
