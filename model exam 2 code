@@ -1,0 +1,44 @@
+def dfs(state, path, visited):
+    if state == (0, 0, 0):
+        return path + [state]
+
+    m, c, b = state
+
+    moves = [(1, 0), (2, 0), (0, 1), (0, 2), (1, 1)]
+
+    for x, y in moves:
+        if b == 1:
+            new_state = (m-x, c-y, 0)
+        else:
+            new_state = (m+x, c+y, 1)
+
+        nm, nc, nb = new_state
+
+        if not (0 <= nm <= 3 and 0 <= nc <= 3):
+            continue
+
+        if nm > 0 and nc > nm:
+            continue
+
+        if (3-nm) > 0 and (3-nc) > (3-nm):
+            continue
+
+        if new_state not in visited:
+            visited.add(new_state)
+            result = dfs(new_state, path + [state], visited)
+
+            if result:
+                return result
+
+    return None
+
+start = (3, 3, 1)
+
+solution = dfs(start, [], {start})
+
+if solution:
+    print("Sequence of States:")
+    for state in solution:
+        print(state)
+else:
+    print("No solution found")
