@@ -1,0 +1,37 @@
+% Students
+student(101, himanath).
+student(102, rahul).
+student(103, sai).
+
+% Faculty
+faculty(201, kumar).
+faculty(202, ramesh).
+
+% Departments
+department(aiml).
+department(cse).
+
+% Courses
+course(python).
+course(ai).
+course(dbms).
+
+% Faculty teaches courses
+teaches(201, python).
+teaches(201, ai).
+teaches(202, dbms).
+
+% Students study courses
+studies(101, python).
+studies(101, ai).
+studies(102, dbms).
+studies(103, python).
+
+% Rules
+faculty_teaches(F, C) :-
+    faculty(F, _),
+    teaches(F, C).
+
+student_studies(S, C) :-
+    student(S, _),
+    studies(S, C).
